@@ -1,0 +1,19 @@
+{
+  "name": "homebrew",
+  "version": "1.0.0",
+  "description": "Starter kit with gulp, scss, and typescript.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenbelyea/Homebrew.git"
+  },
+  "author": "@belwerks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephenbelyea/Homebrew/issues"
+  },
+  "homepage": "https://github.com/stephenbelyea/Homebrew#readme"
+}
