@@ -23,12 +23,10 @@ gulp.task('sass:dev', function() {
 // Compile TS for dev. No min or concat.
 gulp.task('ts:dev', function() {
   var tsProject = ts.createProject(config.tsFiles + 'tsconfig.json');
-
   var tsResult =
     gulp.src(config.tsAll)
     .pipe($.sourcemaps.init())
     .pipe(ts(tsProject));
-
   return tsResult.js
     .pipe($.concat('main.js'))
     .pipe($.sourcemaps.write('./'))
