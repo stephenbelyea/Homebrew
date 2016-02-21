@@ -1,7 +1,7 @@
 {
   "name": "homebrew",
   "description": "Starter kit with gulp, scss, and typescript.",
-  "main": "index.html",
+  "main": "gulpfile.js",
   "authors": [
     "@belwerks"
   ],
