@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/stephenbelyea/Homebrew/issues"
   },
-  "homepage": "https://github.com/stephenbelyea/Homebrew#readme"
+  "homepage": "https://github.com/stephenbelyea/Homebrew#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
