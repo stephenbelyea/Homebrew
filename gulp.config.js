@@ -1,7 +1,7 @@
 module.exports = function() {
   var config = {
     // SASS and CSS paths
-    sassSrc: 'scss/app.scss',
+    sassSrc: 'scss/global.scss',
     sassAll: 'scss/**/*.scss',
     cssDest: 'css/dist/',
 

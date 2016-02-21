@@ -10,9 +10,7 @@ gulp.task('sass:dev', function() {
   return gulp
     .src(config.sassSrc)
     .pipe(
-      $.sass({
-        includePaths: config.sassAll
-      })
+      $.sass()
       .on('error', $.sass.logError))
     .pipe(
       $.autoprefixer({
@@ -28,8 +26,8 @@ gulp.task('ts:dev', function() {
 
   var tsResult =
     gulp.src(config.tsAll)
-      .pipe($.sourcemaps.init())
-      .pipe(ts(tsProject));
+    .pipe($.sourcemaps.init())
+    .pipe(ts(tsProject));
 
   return tsResult.js
     .pipe($.concat('main.js'))
