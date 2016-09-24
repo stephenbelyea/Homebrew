@@ -1,7 +1,7 @@
 {
   "name": "homebrew",
   "version": "1.0.0",
-  "description": "Starter kit with gulp, scss, and typescript.",
+  "description": "Starter kit with Gulp, SCSS, and TypeScript.",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
@@ -12,9 +12,11 @@
   "bugs": {
     "url": "https://github.com/stephenbelyea/Homebrew/issues"
   },
+  "scripts": {
+    "start": "typings install && gulp"
+  },
   "homepage": "https://github.com/stephenbelyea/Homebrew#readme",
   "devDependencies": {
-    "bower": "^1.7.7",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
@@ -23,5 +25,8 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.11.0",
     "typings": "^0.8.1"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
   }
 }

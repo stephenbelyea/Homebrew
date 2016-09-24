@@ -1,14 +1,14 @@
 module.exports = function() {
   var config = {
     // SASS and CSS paths
-    sassSrc: 'scss/global.scss',
-    sassAll: 'scss/**/*.scss',
-    cssDest: 'css/dist/',
+    sassSrc: 'src/styles/global.scss',
+    sassAll: 'src/styles/**/*.scss',
+    cssDest: 'dist/styles/',
 
     // TS paths
-    tsAll: 'ts/**.ts',
-    tsFiles: 'ts/',
-    jsDest: 'js/dist/'
+    tsAll: 'src/scripts/**.ts',
+    tsFiles: 'src/scripts/',
+    jsDest: 'dist/scripts/'
   };
   return config;
 };

@@ -20,6 +20,16 @@ gulp.task('sass:dev', function() {
     .pipe(gulp.dest(config.cssDest));
 });
 
+// Collect and concat vendor JS.
+gulp.task('js:vendor', function() {
+  return gulp
+    .src([
+      "node_modules/jquery/dist/jquery.min.js"
+    ])
+    .pipe($.concat("vendor.js"))
+    .pipe(gulp.dest(config.jsDest + "vendor/"));
+});
+
 // Compile TS for dev. No min or concat.
 gulp.task('ts:dev', function() {
   var tsProject = ts.createProject(config.tsFiles + 'tsconfig.json');
