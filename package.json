@@ -1,6 +1,6 @@
 {
   "name": "homebrew",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Starter kit with Gulp, SCSS, and TypeScript.",
   "main": "gulpfile.js",
   "repository": {

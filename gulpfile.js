@@ -43,7 +43,7 @@ gulp.task('ts:dev', function() {
     .pipe(gulp.dest(config.jsDest));
 });
 
-gulp.task('build', ['sass:dev', 'ts:dev']);
+gulp.task('build', ['sass:dev', 'js:vendor', 'ts:dev']);
 
 gulp.task('default', ['build'], function() {
   gulp.watch([config.sassAll], ['sass:dev']);

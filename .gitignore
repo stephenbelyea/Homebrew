@@ -1,4 +1,6 @@
+node_modules
 typings
 tsd-debug.log
-css
-js
+.DS_Store
+.git
+dist
