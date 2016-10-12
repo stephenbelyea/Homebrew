@@ -36,7 +36,7 @@ gulp.task('ts:dev', function() {
   var tsResult =
     gulp.src(config.tsAll)
     .pipe($.sourcemaps.init())
-    .pipe(ts(tsProject));
+    .pipe(tsProject());
   return tsResult.js
     .pipe($.concat('main.js'))
     .pipe($.sourcemaps.write('./'))
