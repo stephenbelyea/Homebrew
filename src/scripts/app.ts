@@ -6,6 +6,9 @@ class Test {
   };
 }
 
+
+document.getElementById("year").innerHTML = (new Date()).getFullYear().toString();
+
 jQuery(document).ready(function($){
   let test = new Test();
 });
