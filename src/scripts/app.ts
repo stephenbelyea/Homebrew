@@ -1,14 +1,14 @@
 /// <reference path="../../typings/main.d.ts"/>
 
-class Test {
-  constructor(){
-    console.log("hello");
-  };
+class Helpers {
+  footerDate() {
+    let date = new Date();
+    document.getElementById("year").innerHTML = date.getFullYear().toString();
+  }
+  pageInit() {
+    this.footerDate();
+  }
 }
 
-
-document.getElementById("year").innerHTML = (new Date()).getFullYear().toString();
-
-jQuery(document).ready(function($){
-  let test = new Test();
-});
+const h = new Helpers();
+h.pageInit();
