@@ -3,7 +3,6 @@ var config = require('./gulp.config')();
 var $ = require('gulp-load-plugins')({
   lazy: true
 });
-var ts = $.typescript;
 
 // Compile SASS for dev. No min or concat.
 gulp.task('sass:dev', function() {
