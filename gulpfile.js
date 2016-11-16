@@ -9,14 +9,33 @@ var ts = $.typescript;
 gulp.task('sass:dev', function() {
   return gulp
     .src(config.sassSrc)
-    .pipe(
-      $.sass()
-      .on('error', $.sass.logError))
-    .pipe(
-      $.autoprefixer({
-        browsers: ['last 2 versions', 'ie >= 9']
-      })
-    )
+    .pipe($.sourcemaps.init())
+    .pipe($.sass().on('error', $.sass.logError))
+    .pipe($.autoprefixer({
+      browsers: ['last 2 versions']
+    }))
+    .pipe($.rename('main.css'))
+    .pipe($.sourcemaps.write('./'))
+    .pipe(gulp.dest(config.cssDest));
+});
+
+// Clone image files for dist - no min or optim yet.
+gulp.task('images', function() {
+  return gulp
+    .src(config.imageSrc + "*")
+    .pipe($.imagemin())
+    .pipe(gulp.dest(config.imageDist))
+});
+
+// Collect and concat vendor CSS.
+gulp.task('css:vendor', function() {
+  return gulp
+    .src([
+      // Nothing yet...
+    ])
+    .pipe($.sourcemaps.init())
+    .pipe($.concat("vendor.css"))
+    .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(config.cssDest));
 });
 
@@ -26,26 +45,30 @@ gulp.task('js:vendor', function() {
     .src([
       "node_modules/jquery/dist/jquery.min.js"
     ])
+    .pipe($.sourcemaps.init())
     .pipe($.concat("vendor.js"))
-    .pipe(gulp.dest(config.jsDest + "vendor/"));
+    .pipe($.sourcemaps.write('./'))
+    .pipe(gulp.dest(config.jsDest));
 });
 
-// Compile TS for dev. No min or concat.
-gulp.task('ts:dev', function() {
-  var tsProject = ts.createProject(config.tsFiles + 'tsconfig.json');
-  var tsResult =
-    gulp.src(config.tsAll)
+// Transpile ES2015 via Babel.
+gulp.task('js:dev', function() {
+  return gulp
+    .src(config.jsAll)
     .pipe($.sourcemaps.init())
-    .pipe(tsProject());
-  return tsResult.js
+    .pipe($.babel({
+      presets: ['es2015']
+    }))
     .pipe($.concat('main.js'))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(config.jsDest));
 });
 
-gulp.task('build', ['sass:dev', 'js:vendor', 'ts:dev']);
+gulp.task('prep', ['images', 'css:vendor', 'js:vendor']);
+gulp.task('build', ['sass:dev', 'js:dev']);
+gulp.task('default', ['prep', 'build']);
 
-gulp.task('default', ['build'], function() {
+gulp.task('watch', ['build'], function() {
   gulp.watch([config.sassAll], ['sass:dev']);
-  gulp.watch([config.tsAll], ['ts:dev']);
+  gulp.watch([config.jsAll], ['js:dev']);
 });

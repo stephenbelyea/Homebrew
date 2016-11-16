@@ -1,5 +1,3 @@
-/// <reference path="../../typings/main.d.ts"/>
-
 class Helpers {
   footerDate() {
     let date = new Date();
