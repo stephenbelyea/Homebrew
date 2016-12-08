@@ -1,6 +1,5 @@
 node_modules
-typings
-tsd-debug.log
 .DS_Store
-.git
+*.db
+*.log
 dist
